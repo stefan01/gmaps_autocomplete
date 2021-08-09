@@ -63,7 +63,7 @@
     },
     {
       "name": "gmaps_autocomplete_platform_interface",
-      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/git/gmaps_autocomplete-f2641c68248f5092e54acc6d0e6ddcf7a105eaf2/gmaps_autocomplete_platform_interface",
+      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/git/gmaps_autocomplete-5728e5404277b023c9fb09247eb44c54b85a5c67/gmaps_autocomplete_platform_interface",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -164,7 +164,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-08-09T10:01:54.476909Z",
+  "generated": "2021-08-09T10:22:08.988050Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

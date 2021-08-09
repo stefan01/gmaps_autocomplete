@@ -70,7 +70,7 @@ packages:
     description:
       path: gmaps_autocomplete_platform_interface
       ref: HEAD
-      resolved-ref: f2641c68248f5092e54acc6d0e6ddcf7a105eaf2
+      resolved-ref: "5728e5404277b023c9fb09247eb44c54b85a5c67"
       url: "https://github.com/stefan01/gmaps_autocomplete"
     source: git
     version: "0.0.1"

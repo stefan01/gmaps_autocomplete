@@ -12,15 +12,15 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
 
-gmaps_autocomplete_web:
-  git:
-    url: https://github.com/stefan01/gmaps_autocomplete
-    path: gmaps_autocomplete_web
+  gmaps_autocomplete_web:
+    git:
+      url: https://github.com/stefan01/gmaps_autocomplete
+      path: gmaps_autocomplete_web
 
-gmaps_autocomplete_platform_interface:
-  git:
-    url: https://github.com/stefan01/gmaps_autocomplete
-    path: gmaps_autocomplete_platform_interface
+  gmaps_autocomplete_platform_interface:
+    git:
+      url: https://github.com/stefan01/gmaps_autocomplete
+      path: gmaps_autocomplete_platform_interface
 
 dev_dependencies:
   flutter_test:
