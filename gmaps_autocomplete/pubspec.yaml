@@ -1,0 +1,43 @@
+name: gmaps_autocomplete
+description: Flutter Plugin implementing the google maps places autocomplete widget for web
+version: 0.0.1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+
+dev_dependencies:
+  plugin_platform_interface: ^2.0.0
+
+gmaps_autocomplete_web:
+  git:
+    url: https://github.com/stefan01/gmaps_autocomplete
+    path: gmaps_autocomplete_web
+
+gmaps_autocomplete_platform_interface:
+  git:
+    url: https://github.com/stefan01/gmaps_autocomplete
+    path: gmaps_autocomplete_platform_interface
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  lint: ^1.5.3
+
+# The following section is specific to Flutter.
+flutter:
+  # This section identifies this Flutter project as a plugin project.
+  # The 'pluginClass' and Android 'package' identifiers should not ordinarily
+  # be modified. They are used by the tooling to maintain consistency when
+  # adding or updating assets for this project.
+  plugin:
+    platforms:
+      web:
+        default_package: gmaps_autocomplete_web
