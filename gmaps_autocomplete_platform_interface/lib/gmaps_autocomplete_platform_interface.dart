@@ -1,7 +1,9 @@
+import 'package:flutter/widgets.dart';
+import 'package:gmaps_autocomplete_platform_interface/method_channel_gmaps_autocomplete.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-abstract GMapsAutocompletePlatform extends PlatformInterface {
-     /// Constructs a UrlLauncherPlatform.
+abstract class GMapsAutocompletePlatform extends PlatformInterface {
+  /// Constructs a UrlLauncherPlatform.
   GMapsAutocompletePlatform() : super(token: _token);
 
   static final Object _token = Object();
@@ -24,5 +26,4 @@ abstract GMapsAutocompletePlatform extends PlatformInterface {
   Widget buildView() {
     throw UnimplementedError('buildView() has not been implemented.');
   }
-
 }

@@ -65,6 +65,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  gmaps_autocomplete_platform_interface:
+    dependency: "direct main"
+    description:
+      path: gmaps_autocomplete_platform_interface
+      ref: HEAD
+      resolved-ref: f2641c68248f5092e54acc6d0e6ddcf7a105eaf2
+      url: "https://github.com/stefan01/gmaps_autocomplete"
+    source: git
+    version: "0.0.1"
   js:
     dependency: transitive
     description:
@@ -72,13 +81,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.3"
-  lint:
-    dependency: "direct dev"
-    description:
-      name: lint
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.5.3"
   matcher:
     dependency: transitive
     description:
@@ -87,7 +89,7 @@ packages:
     source: hosted
     version: "0.12.10"
   meta:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: meta
       url: "https://pub.dartlang.org"
@@ -100,8 +102,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
-  plugin_platform_interface:
+  pedantic:
     dependency: "direct dev"
+    description:
+      name: pedantic
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.11.1"
+  plugin_platform_interface:
+    dependency: transitive
     description:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
@@ -170,4 +179,4 @@ packages:
     version: "2.1.0"
 sdks:
   dart: ">=2.12.0 <3.0.0"
-  flutter: ">=1.20.0"
+  flutter: ">=2.0.0"

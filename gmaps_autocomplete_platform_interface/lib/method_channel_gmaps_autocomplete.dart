@@ -1,10 +1,8 @@
-import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'url_launcher_platform_interface.dart';
+import 'package:gmaps_autocomplete_platform_interface/gmaps_autocomplete_platform_interface.dart';
 
-const MethodChannel _channel =
-    MethodChannel('gmaps_autocomplete/gmaps_autocomplete');
-
+/// An implementation of [GMapsAutocompletePlatform] that uses method channels.
 class MethodChannelGMapsAutocomplete extends GMapsAutocompletePlatform {
   @override
   Widget buildView() {
