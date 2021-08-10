@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:gmaps_autocomplete_platform_interface/gmaps_autocomplete_platform_interface.dart';
@@ -5,6 +7,8 @@ import 'package:gmaps_autocomplete_platform_interface/gmaps_autocomplete_platfor
 // import 'dart:io' if (dart.library.html) 'dart:ui' as ui;
 import 'dart:ui' as ui;
 import 'dart:html' as html;
+
+import 'package:gmaps_autocomplete_web/model/gmaps.dart';
 
 /// The web implementation of [GMapsAutocompletePlatform].
 ///
@@ -21,6 +25,7 @@ class GMapsAutocompleteWeb extends GMapsAutocompletePlatform {
   }
 }
 
+/// Widget for displaying an google maps autocomplete text field
 class GMapsAutocompleteWidget extends StatefulWidget {
   const GMapsAutocompleteWidget();
 
@@ -28,14 +33,26 @@ class GMapsAutocompleteWidget extends StatefulWidget {
   _GMapsAutocompleteWidget createState() => _GMapsAutocompleteWidget();
 }
 
+/// State for widget displaying an google maps autocomplete text field
 class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
   @override
   void initState() {
+    final HtmlElement inputElement = html.InputElement()
+      ..id = 'gmaps-autocomplete-input'
+      ..placeholder = 'Please enter your address'
+      ..type = 'text';
+
     ui.platformViewRegistry.registerViewFactory(
-        'gmaps-autocomplete',
-        (int viewId) => html.InputElement()
-          ..id = 'gmaps-autocomplete-input'
-          ..placeholder = 'Please enter your address');
+        'gmaps-autocomplete', (int viewId) => inputElement);
+
+    final Autocomplete autocomplete = Autocomplete(
+      inputElement,
+      AutocompleteOptions(
+        fields: ['address_components', 'geometry', 'icon', 'name'],
+        types: ['establishment'],
+      ),
+    );
+
     super.initState();
   }
 

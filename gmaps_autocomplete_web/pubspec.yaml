@@ -12,7 +12,7 @@ flutter:
   plugin:
     platforms:
       web:
-        pluginClass: GMapsAutocompletePlugin
+        pluginClass: GMapsAutocompleteWeb
         fileName: gmaps_autocomplete_web.dart
 
 dependencies:

@@ -1,0 +1,27 @@
+name: gmaps_autocomplete_example
+description: Demonstrates how to use the gmaps_autocomplete plugin.
+publish_to: none
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: ">=1.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  gmaps_autocomplete:
+    path: ../
+  
+
+dev_dependencies:
+  flutter_driver:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  lint: ^1.5.3
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
