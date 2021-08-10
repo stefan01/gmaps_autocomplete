@@ -8,7 +8,7 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:gmaps_autocomplete_platform_interface/gmaps_autocomplete_platform_interface.dart';
 import 'package:gmaps_autocomplete_platform_interface/model/lat_lng_bounds.dart';
 
-import 'package:gmaps_autocomplete_web/model/gmaps.dart';
+import 'package:gmaps_autocomplete_web/model/gmaps_places.dart';
 
 /// The web implementation of [GMapsAutocompletePlatform].
 ///
