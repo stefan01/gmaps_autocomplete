@@ -74,6 +74,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "lint",
+      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/lint-1.5.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "matcher",
       "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/matcher-0.12.10",
       "packageUri": "lib/",
@@ -88,12 +94,6 @@
     {
       "name": "path",
       "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/path-1.8.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "pedantic",
-      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/pedantic-1.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -164,7 +164,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-08-10T10:09:44.184850Z",
+  "generated": "2021-08-10T10:12:13.389468Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

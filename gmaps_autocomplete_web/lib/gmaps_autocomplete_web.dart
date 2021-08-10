@@ -1,12 +1,12 @@
 import 'dart:html';
+import 'dart:html' as html;
+// import 'dart:io' if (dart.library.html) 'dart:ui' as ui;
+import 'dart:ui' as ui;
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:gmaps_autocomplete_platform_interface/gmaps_autocomplete_platform_interface.dart';
-
-// import 'dart:io' if (dart.library.html) 'dart:ui' as ui;
-import 'dart:ui' as ui;
-import 'dart:html' as html;
+import 'package:gmaps_autocomplete_platform_interface/model/lat_lng_bounds.dart';
 
 import 'package:gmaps_autocomplete_web/model/gmaps.dart';
 
@@ -20,14 +20,38 @@ class GMapsAutocompleteWeb extends GMapsAutocompletePlatform {
   }
 
   @override
-  Widget buildView() {
+  Widget buildView({
+    List<String>? fields,
+    List<String>? types,
+    LatLngBounds? bounds,
+    bool? strictBounds,
+    List<String>? componentRestrictions,
+    bool? placeIdOnly,
+    void Function(String placeId)? onSubmitted,
+  }) {
     return const GMapsAutocompleteWidget();
   }
 }
 
 /// Widget for displaying an google maps autocomplete text field
 class GMapsAutocompleteWidget extends StatefulWidget {
-  const GMapsAutocompleteWidget();
+  const GMapsAutocompleteWidget({
+    this.fields,
+    this.types,
+    this.bounds,
+    this.strictBounds,
+    this.componentRestrictions,
+    this.placeIdOnly,
+    this.onSubmitted,
+  });
+
+  final List<String>? fields;
+  final List<String>? types;
+  final LatLngBounds? bounds;
+  final bool? strictBounds;
+  final List<String>? componentRestrictions;
+  final bool? placeIdOnly;
+  final void Function(String placeId)? onSubmitted;
 
   @override
   _GMapsAutocompleteWidget createState() => _GMapsAutocompleteWidget();
@@ -48,8 +72,13 @@ class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
     final Autocomplete autocomplete = Autocomplete(
       inputElement,
       AutocompleteOptions(
-        fields: ['address_components', 'geometry', 'icon', 'name'],
-        types: ['establishment'],
+        fields: widget.fields,
+        types: widget.types,
+        bounds: widget.bounds,
+        strictBounds: widget.strictBounds,
+        componentRestrictions: widget.componentRestrictions,
+        placeIdOnly: widget.placeIdOnly,
+        onSubmitted: widget.onSubmitted,
       ),
     );
 

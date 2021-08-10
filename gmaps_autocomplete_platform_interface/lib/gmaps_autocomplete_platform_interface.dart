@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:gmaps_autocomplete_platform_interface/method_channel_gmaps_autocomplete.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import 'package:gmaps_autocomplete_platform_interface/model/lat_lng_bounds.dart';
 
 abstract class GMapsAutocompletePlatform extends PlatformInterface {
   /// Constructs a UrlLauncherPlatform.
@@ -23,7 +24,15 @@ abstract class GMapsAutocompletePlatform extends PlatformInterface {
   }
 
   /// Returns a widget displaying the autocomplete text field
-  Widget buildView() {
+  Widget buildView({
+    List<String>? fields,
+    List<String>? types,
+    LatLngBounds? bounds,
+    bool? strictBounds,
+    List<String>? componentRestrictions,
+    bool? placeIdOnly,
+    void Function(String placeId)? onSubmitted,
+  }) {
     throw UnimplementedError('buildView() has not been implemented.');
   }
 }

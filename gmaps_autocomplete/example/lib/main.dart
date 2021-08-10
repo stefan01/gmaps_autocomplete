@@ -10,9 +10,22 @@ class GMapsAutocompleteExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: GMapsAutocomplete(),
+        appBar: AppBar(
+          title: const Text('GMaps Autocomplete Example'),
+        ),
+        body: Column(
+          children: const <Widget>[
+            Text('Address'),
+            SizedBox(
+              height: 25,
+              width: 200,
+              child: GMapsAutocomplete(),
+            ),
+          ],
+        ),
       ),
     );
   }

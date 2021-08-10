@@ -10,6 +10,7 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 /// A web implementation of the GoogleMapsPlacesAutocomplete plugin.
 class GoogleMapsPlacesAutocompleteWeb {
+  /// Registers this class as the default instance of [GoogleMapsPlacesAutocompleteWeb].
   static void registerWith(Registrar registrar) {
     final MethodChannel channel = MethodChannel(
       'google_maps_places_autocomplete',
@@ -17,7 +18,8 @@ class GoogleMapsPlacesAutocompleteWeb {
       registrar,
     );
 
-    final pluginInstance = GoogleMapsPlacesAutocompleteWeb();
+    final GoogleMapsPlacesAutocompleteWeb pluginInstance =
+        GoogleMapsPlacesAutocompleteWeb();
     channel.setMethodCallHandler(pluginInstance.handleMethodCall);
   }
 
@@ -31,14 +33,15 @@ class GoogleMapsPlacesAutocompleteWeb {
       default:
         throw PlatformException(
           code: 'Unimplemented',
-          details: 'google_maps_places_autocomplete for web doesn\'t implement \'${call.method}\'',
+          details:
+              'google_maps_places_autocomplete for web doesn\'t implement \'${call.method}\'',
         );
     }
   }
 
   /// Returns a [String] containing the version of the platform.
   Future<String> getPlatformVersion() {
-    final version = html.window.navigator.userAgent;
+    final String version = html.window.navigator.userAgent;
     return Future.value(version);
   }
 }
