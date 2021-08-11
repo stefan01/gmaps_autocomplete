@@ -106,49 +106,53 @@ class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
 
     // Add listener if [onSubmitted] is not null
     if (widget.onSubmitted != null) {
-      _eventListener =
-          autocomplete.addListener('place_changed', allowInterop(() {
-        final PlaceResultJS resultJS = autocomplete.getPlace();
-        final PlaceResult result = PlaceResult(
-          addressComponents: resultJS.address_components
-              ?.map(
-                (GeocoderAddressComponentJS addressComponent) =>
-                    GeocoderAddressComponent(
-                  longName: addressComponent.long_name,
-                  shortName: addressComponent.short_name,
-                  types: addressComponent.types,
-                ),
-              )
-              .toList(),
-          adrAddress: resultJS.adr_address,
-          // this.aspects: resultJS.aspects,
-          // this.businessStatus: resultJS.business_status,
-          formattedAddress: resultJS.formatted_address,
-          formattedPhoneNumber: resultJS.formatted_phone_number,
-          // geometry: resultJS.geometry,
-          htmlAttributions: resultJS.html_attributions,
-          icon: resultJS.icon,
-          iconBackgroundColor: resultJS.icon_background_color,
-          iconMaskBaseUri: resultJS.icon_mask_base_uri,
-          internationalPhoneNumber: resultJS.international_phone_number,
-          name: resultJS.name,
-          // openingHours: resultJS.opening_hours,
-          // photos: resultJS.photos,
-          placeId: resultJS.place_id,
-          // plusCode: resultJS.plus_code,
-          priceLevel: resultJS.price_level,
-          ratings: resultJS.ratings,
-          // reviews: resultJS.reviews,
-          types: resultJS.types,
-          url: resultJS.url,
-          userRatingsTotal: resultJS.user_ratings_total,
-          utcOffset: resultJS.utc_offset,
-          utcOffsetMinutes: resultJS.utc_offset_minutes,
-          vicinitiy: resultJS.vicinitiy,
-          website: resultJS.website,
-        );
-        widget.onSubmitted!(result);
-      }));
+      _eventListener = autocomplete.addListener(
+        'place_changed',
+        allowInterop(
+          () {
+            final PlaceResultJS resultJS = autocomplete.getPlace();
+            final PlaceResult result = PlaceResult(
+              addressComponents: resultJS.address_components
+                  ?.map(
+                    (GeocoderAddressComponentJS addressComponent) =>
+                        GeocoderAddressComponent(
+                      longName: addressComponent.long_name,
+                      shortName: addressComponent.short_name,
+                      types: addressComponent.types,
+                    ),
+                  )
+                  .toList(),
+              adrAddress: resultJS.adr_address,
+              // this.aspects: resultJS.aspects,
+              // this.businessStatus: resultJS.business_status,
+              formattedAddress: resultJS.formatted_address,
+              formattedPhoneNumber: resultJS.formatted_phone_number,
+              // geometry: resultJS.geometry,
+              htmlAttributions: resultJS.html_attributions,
+              icon: resultJS.icon,
+              iconBackgroundColor: resultJS.icon_background_color,
+              iconMaskBaseUri: resultJS.icon_mask_base_uri,
+              internationalPhoneNumber: resultJS.international_phone_number,
+              name: resultJS.name,
+              // openingHours: resultJS.opening_hours,
+              // photos: resultJS.photos,
+              placeId: resultJS.place_id,
+              // plusCode: resultJS.plus_code,
+              priceLevel: resultJS.price_level,
+              ratings: resultJS.ratings,
+              // reviews: resultJS.reviews,
+              types: resultJS.types,
+              url: resultJS.url,
+              userRatingsTotal: resultJS.user_ratings_total,
+              utcOffset: resultJS.utc_offset,
+              utcOffsetMinutes: resultJS.utc_offset_minutes,
+              vicinitiy: resultJS.vicinitiy,
+              website: resultJS.website,
+            );
+            widget.onSubmitted!(result);
+          },
+        ),
+      );
     }
 
     super.initState();
