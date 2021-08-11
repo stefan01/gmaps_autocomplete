@@ -17,12 +17,17 @@ class GMapsAutocompleteExample extends StatelessWidget {
           title: const Text('GMaps Autocomplete Example'),
         ),
         body: Column(
-          children: const <Widget>[
-            Text('Address'),
+          children: <Widget>[
+            const Text('Address'),
             SizedBox(
               height: 25,
               width: 200,
-              child: GMapsAutocomplete(),
+              child: GMapsAutocomplete(
+                onSubmitted: (String placeId) {
+                  print('PLACEID:$placeId');
+                },
+                //bounds: LatLngBounds(),
+              ),
             ),
           ],
         ),

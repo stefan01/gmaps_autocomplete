@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:gmaps_autocomplete_platform_interface/gmaps_autocomplete_platform_interface.dart';
 import 'package:gmaps_autocomplete_platform_interface/model/lat_lng_bounds.dart';
+import 'package:gmaps_autocomplete_web/model/gmaps.dart';
 
 import 'package:gmaps_autocomplete_web/model/gmaps_places.dart';
 
@@ -59,6 +60,8 @@ class GMapsAutocompleteWidget extends StatefulWidget {
 
 /// State for widget displaying an google maps autocomplete text field
 class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
+  MapsEventListener? _eventListener;
+
   @override
   void initState() {
     final HtmlElement inputElement = html.InputElement()
@@ -74,7 +77,9 @@ class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
       AutocompleteOptions(
         fields: widget.fields,
         types: widget.types,
-        bounds: widget.bounds,
+        bounds: widget.bounds == null
+            ? null
+            : LatLngBoundsJS.fromLatLngBounds(widget.bounds!),
         strictBounds: widget.strictBounds,
         componentRestrictions: widget.componentRestrictions,
         placeIdOnly: widget.placeIdOnly,
@@ -82,12 +87,23 @@ class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
       ),
     );
 
+    if (widget.onSubmitted != null) {
+      _eventListener =
+          autocomplete.addListener('place_changed', widget.onSubmitted!);
+    }
+
     super.initState();
   }
 
   @override
+  void dispose() {
+    _eventListener?.remove();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return HtmlElementView(
+    return const HtmlElementView(
       viewType: 'gmaps-autocomplete',
     );
   }

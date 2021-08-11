@@ -8,7 +8,7 @@ class GMapsAutocomplete extends StatelessWidget {
     this.fields,
     this.types,
     this.bounds,
-    this.strictBound,
+    this.strictBounds,
     this.componentRestrictions,
     this.placeIdOnly,
     this.onSubmitted,
@@ -24,7 +24,7 @@ class GMapsAutocomplete extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GMapsAutocompletePlatform.instance.buildView({
+    return GMapsAutocompletePlatform.instance.buildView(
       fields: fields,
       types: types,
       bounds: bounds,
@@ -32,6 +32,6 @@ class GMapsAutocomplete extends StatelessWidget {
       componentRestrictions: componentRestrictions,
       placeIdOnly: placeIdOnly,
       onSubmitted: onSubmitted,
-    });
+    );
   }
 }
