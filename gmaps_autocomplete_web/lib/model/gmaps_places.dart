@@ -46,6 +46,9 @@ class LatLngBoundsJS {
       LatLngJS.fromLatLng(latLngBounds.southwest),
     );
   }
+
+  external LatLngJS northeast;
+  external LatLngJS southwest;
 }
 
 @JS('LatLng')
@@ -58,6 +61,9 @@ class LatLngJS {
   }
 }
 
+external double latitude;
+external double longitude;
+
 @JS('ComponentRestrictions')
 class ComponentRestrictionsJS {
   external ComponentRestrictionsJS(List<String> country);
@@ -66,4 +72,6 @@ class ComponentRestrictionsJS {
   factory ComponentRestrictionsJS.fromStringList(List<String> country) {
     return ComponentRestrictionsJS(country);
   }
+
+  external List<String> country;
 }

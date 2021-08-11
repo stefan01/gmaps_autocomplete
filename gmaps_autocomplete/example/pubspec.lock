@@ -108,7 +108,7 @@ packages:
     description:
       path: gmaps_autocomplete_platform_interface
       ref: HEAD
-      resolved-ref: "652a4844a9e8b572fca1ecced62df09881da7e84"
+      resolved-ref: "9ab0a6094ab328edc21375fc42c209e69ad1de15"
       url: "https://github.com/stefan01/gmaps_autocomplete"
     source: git
     version: "0.0.1"
@@ -117,7 +117,7 @@ packages:
     description:
       path: gmaps_autocomplete_web
       ref: HEAD
-      resolved-ref: "652a4844a9e8b572fca1ecced62df09881da7e84"
+      resolved-ref: "9ab0a6094ab328edc21375fc42c209e69ad1de15"
       url: "https://github.com/stefan01/gmaps_autocomplete"
     source: git
     version: "0.0.1"

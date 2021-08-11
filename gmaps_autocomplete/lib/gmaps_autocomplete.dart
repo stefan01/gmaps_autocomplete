@@ -10,7 +10,6 @@ class GMapsAutocomplete extends StatelessWidget {
     this.bounds,
     this.strictBounds,
     this.componentRestrictions,
-    this.placeIdOnly,
     this.onSubmitted,
   });
 
@@ -19,7 +18,7 @@ class GMapsAutocomplete extends StatelessWidget {
   final LatLngBounds? bounds;
   final bool? strictBounds;
   final List<String>? componentRestrictions;
-  final bool? placeIdOnly;
+
   final void Function(String placeId)? onSubmitted;
 
   @override
@@ -30,7 +29,6 @@ class GMapsAutocomplete extends StatelessWidget {
       bounds: bounds,
       strictBounds: strictBounds,
       componentRestrictions: componentRestrictions,
-      placeIdOnly: placeIdOnly,
       onSubmitted: onSubmitted,
     );
   }
