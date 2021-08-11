@@ -2,8 +2,6 @@
 library places;
 
 import 'dart:html';
-import 'package:gmaps_autocomplete_platform_interface/model/lat_lng.dart';
-import 'package:gmaps_autocomplete_platform_interface/model/lat_lng_bounds.dart';
 import 'package:gmaps_autocomplete_web/model/gmaps.dart';
 import 'package:js/js.dart';
 
@@ -34,35 +32,6 @@ class AutocompleteOptions {
   external ComponentRestrictionsJS? componentRestrictions;
   void Function(String placeId)? onSubmitted;
 }
-
-@JS('LatLngBounds')
-class LatLngBoundsJS {
-  external LatLngBoundsJS(LatLngJS northeast, LatLngJS southwest);
-
-  /// Converts a [LatLngBounds] to a [LatLngBoundsJs]
-  factory LatLngBoundsJS.fromLatLngBounds(LatLngBounds latLngBounds) {
-    return LatLngBoundsJS(
-      LatLngJS.fromLatLng(latLngBounds.northeast),
-      LatLngJS.fromLatLng(latLngBounds.southwest),
-    );
-  }
-
-  external LatLngJS northeast;
-  external LatLngJS southwest;
-}
-
-@JS('LatLng')
-class LatLngJS {
-  external LatLngJS(double latitude, double longitude);
-
-  /// Converts a [LatLng] to a [LatLngJS]
-  factory LatLngJS.fromLatLng(LatLng latLng) {
-    return LatLngJS(latLng.latitude, latLng.longitude);
-  }
-}
-
-external double latitude;
-external double longitude;
 
 @JS('ComponentRestrictions')
 class ComponentRestrictionsJS {

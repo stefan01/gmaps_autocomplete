@@ -25,23 +25,23 @@ class GMapsAutocompleteExample extends StatelessWidget {
               height: 25,
               width: 200,
               child: GMapsAutocomplete(
-                onSubmitted: (String placeId) {
+                  /*onSubmitted: (String placeId) {
                   print('PLACEID: $placeId');
-                },
-                bounds: const LatLngBounds(
+                },*/
+                  /*bounds: const LatLngBounds(
                   northeast: LatLng(50.164192, -130.705469),
                   southwest: LatLng(49.964192, -130.505469),
-                ),
-                fields: const <String>[
+                ),*/
+                  /*fields: const <String>[
                   'address_components',
                   'geometry',
                   'icon',
                   'name',
-                ],
-                strictBounds: false,
-                //types: const <String>['establishment'],
-                // componentRestrictions: const <String>['us'],
-              ),
+                ],*/
+                  //strictBounds: false,
+                  //types: const <String>['establishment'],
+                  // componentRestrictions: const <String>['us'],
+                  ),
             ),
           ],
         ),
