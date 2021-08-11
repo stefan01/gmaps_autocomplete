@@ -30,7 +30,6 @@ abstract class GMapsAutocompletePlatform extends PlatformInterface {
     LatLngBounds? bounds,
     bool? strictBounds,
     List<String>? componentRestrictions,
-    bool? placeIdOnly,
     void Function(String placeId)? onSubmitted,
   }) {
     throw UnimplementedError('buildView() has not been implemented.');

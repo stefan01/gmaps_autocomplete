@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gmaps_autocomplete/gmaps_autocomplete.dart';
+import 'package:gmaps_autocomplete_platform_interface/model/lat_lng_bounds.dart';
+import 'package:gmaps_autocomplete_platform_interface/model/lat_lng.dart';
 
 void main() {
   runApp(const GMapsAutocompleteExample());
@@ -26,7 +28,12 @@ class GMapsAutocompleteExample extends StatelessWidget {
                 onSubmitted: (String placeId) {
                   print('PLACEID:$placeId');
                 },
-                //bounds: LatLngBounds(),
+                bounds: const LatLngBounds(
+                  northeast: LatLng(50.164192, -130.705469),
+                  southwest: LatLng(49.964192, -130.505469),
+                ),
+                componentRestrictions: [],
+                strictBounds: true,
               ),
             ),
           ],

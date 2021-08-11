@@ -12,7 +12,6 @@ class MethodChannelGMapsAutocomplete extends GMapsAutocompletePlatform {
     LatLngBounds? bounds,
     bool? strictBounds,
     List<String>? componentRestrictions,
-    bool? placeIdOnly,
     void Function(String placeId)? onSubmitted,
   }) {
     return Text(

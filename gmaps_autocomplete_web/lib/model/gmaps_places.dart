@@ -11,7 +11,8 @@ import 'package:js/js.dart';
 class Autocomplete {
   external Autocomplete(HtmlElement element, AutocompleteOptions options);
 
-  external MapsEventListener addListener(String eventName, Function(String) handler);
+  external MapsEventListener addListener(
+      String eventName, Function(String) handler);
 }
 
 @JS()
@@ -22,8 +23,7 @@ class AutocompleteOptions {
     List<String>? types,
     LatLngBoundsJS? bounds,
     bool? strictBounds,
-    List<String>? componentRestrictions,
-    bool? placeIdOnly,
+    ComponentRestrictionsJS? componentRestrictions,
     void Function(String placeId)? onSubmitted,
   });
 
@@ -31,9 +31,8 @@ class AutocompleteOptions {
   external List<String>? types;
   external LatLngBoundsJS? bounds;
   external bool? strictBounds;
-  external List<String>? componentRestrictions;
-  external bool? placeIdOnly;
-  external void Function(String placeId)? onSubmitted;
+  external ComponentRestrictionsJS? componentRestrictions;
+  void Function(String placeId)? onSubmitted;
 }
 
 @JS('LatLngBounds')
@@ -42,7 +41,10 @@ class LatLngBoundsJS {
 
   /// Converts a [LatLngBounds] to a [LatLngBoundsJs]
   factory LatLngBoundsJS.fromLatLngBounds(LatLngBounds latLngBounds) {
-    return LatLngBoundsJS(LatLngJS.fromLatLng(latLngBounds.northeast), LatLngJS.fromLatLng(latLngBounds.southwest),);
+    return LatLngBoundsJS(
+      LatLngJS.fromLatLng(latLngBounds.northeast),
+      LatLngJS.fromLatLng(latLngBounds.southwest),
+    );
   }
 }
 
@@ -52,6 +54,16 @@ class LatLngJS {
 
   /// Converts a [LatLng] to a [LatLngJS]
   factory LatLngJS.fromLatLng(LatLng latLng) {
-    return LatLngJS(latLng.latitude, latLng.longitude)
+    return LatLngJS(latLng.latitude, latLng.longitude);
+  }
+}
+
+@JS('ComponentRestrictions')
+class ComponentRestrictionsJS {
+  external ComponentRestrictionsJS(List<String> country);
+
+  /// Converts a [List<String>] to a [ComponentRestrictionsJS]
+  factory ComponentRestrictionsJS.fromStringList(List<String> country) {
+    return ComponentRestrictionsJS(country);
   }
 }

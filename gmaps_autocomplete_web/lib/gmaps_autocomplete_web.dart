@@ -27,7 +27,6 @@ class GMapsAutocompleteWeb extends GMapsAutocompletePlatform {
     LatLngBounds? bounds,
     bool? strictBounds,
     List<String>? componentRestrictions,
-    bool? placeIdOnly,
     void Function(String placeId)? onSubmitted,
   }) {
     return const GMapsAutocompleteWidget();
@@ -42,7 +41,6 @@ class GMapsAutocompleteWidget extends StatefulWidget {
     this.bounds,
     this.strictBounds,
     this.componentRestrictions,
-    this.placeIdOnly,
     this.onSubmitted,
   });
 
@@ -51,7 +49,6 @@ class GMapsAutocompleteWidget extends StatefulWidget {
   final LatLngBounds? bounds;
   final bool? strictBounds;
   final List<String>? componentRestrictions;
-  final bool? placeIdOnly;
   final void Function(String placeId)? onSubmitted;
 
   @override
@@ -81,8 +78,10 @@ class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
             ? null
             : LatLngBoundsJS.fromLatLngBounds(widget.bounds!),
         strictBounds: widget.strictBounds,
-        componentRestrictions: widget.componentRestrictions,
-        placeIdOnly: widget.placeIdOnly,
+        componentRestrictions: widget.componentRestrictions == null
+            ? null
+            : ComponentRestrictionsJS.fromStringList(
+                widget.componentRestrictions!),
         onSubmitted: widget.onSubmitted,
       ),
     );
