@@ -15,22 +15,14 @@ class MapsEventListener {
 @JS('LatLngBounds')
 class LatLngBoundsJS {
   external LatLngBoundsJS(LatLngJS northeast, LatLngJS southwest);
-
-  /// Converts a [LatLngBounds] to a [LatLngBoundsJs]
-  factory LatLngBoundsJS.fromLatLngBounds(LatLngBounds latLngBounds) {
-    return LatLngBoundsJS(
-      LatLngJS.fromLatLng(latLngBounds.northeast),
-      LatLngJS.fromLatLng(latLngBounds.southwest),
-    );
-  }
 }
 
-@JS('LatLng')
+@JS()
+@anonymous
 class LatLngJS {
-  external LatLngJS(double latitude, double longitude);
+  // ignore: avoid_positional_boolean_parameters
+  external factory LatLngJS({num lat, num lng});
 
-  /// Converts a [LatLng] to a [LatLngJS]
-  factory LatLngJS.fromLatLng(LatLng latLng) {
-    return LatLngJS(latLng.latitude, latLng.longitude);
-  }
+  external num lat;
+  external num lng;
 }

@@ -1,10 +1,10 @@
 /// Class representing a point in geographical coordinates.
 class LatLng {
-  const LatLng(this.latitude, this.longitude);
+  const LatLng(this.lat, this.lng);
 
   /// The latitude in degrees
-  final double latitude;
+  final num lat;
 
   /// The longitude in degrees
-  final double longitude;
+  final num lng;
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:gmaps_autocomplete_platform_interface/method_channel_gmaps_autocomplete.dart';
+import 'package:gmaps_autocomplete_platform_interface/model/place_result.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:gmaps_autocomplete_platform_interface/model/lat_lng_bounds.dart';
 
@@ -30,7 +31,7 @@ abstract class GMapsAutocompletePlatform extends PlatformInterface {
     LatLngBounds? bounds,
     bool? strictBounds,
     List<String>? componentRestrictions,
-    void Function(String placeId)? onSubmitted,
+    void Function(PlaceResult result)? onSubmitted,
   }) {
     throw UnimplementedError('buildView() has not been implemented.');
   }

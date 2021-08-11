@@ -1,5 +1,6 @@
 import 'dart:html';
 import 'dart:html' as html;
+import 'dart:js';
 // import 'dart:io' if (dart.library.html) 'dart:ui' as ui;
 import 'dart:ui' as ui;
 
@@ -7,6 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:gmaps_autocomplete_platform_interface/gmaps_autocomplete_platform_interface.dart';
 import 'package:gmaps_autocomplete_platform_interface/model/lat_lng_bounds.dart';
+import 'package:gmaps_autocomplete_platform_interface/model/place_result.dart';
 import 'package:gmaps_autocomplete_web/model/gmaps.dart';
 
 import 'package:gmaps_autocomplete_web/model/gmaps_places.dart';
@@ -27,9 +29,16 @@ class GMapsAutocompleteWeb extends GMapsAutocompletePlatform {
     LatLngBounds? bounds,
     bool? strictBounds,
     List<String>? componentRestrictions,
-    void Function(String placeId)? onSubmitted,
+    void Function(PlaceResult result)? onSubmitted,
   }) {
-    return const GMapsAutocompleteWidget();
+    return GMapsAutocompleteWidget(
+      fields: fields,
+      types: types,
+      bounds: bounds,
+      strictBounds: strictBounds,
+      componentRestrictions: componentRestrictions,
+      onSubmitted: onSubmitted,
+    );
   }
 }
 
@@ -49,7 +58,7 @@ class GMapsAutocompleteWidget extends StatefulWidget {
   final LatLngBounds? bounds;
   final bool? strictBounds;
   final List<String>? componentRestrictions;
-  final void Function(String placeId)? onSubmitted;
+  final void Function(PlaceResult result)? onSubmitted;
 
   @override
   _GMapsAutocompleteWidget createState() => _GMapsAutocompleteWidget();
@@ -69,26 +78,77 @@ class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
     ui.platformViewRegistry.registerViewFactory(
         'gmaps-autocomplete', (int viewId) => inputElement);
 
+    final LatLngBounds? bounds = widget.bounds;
+
     final Autocomplete autocomplete = Autocomplete(
       inputElement,
       AutocompleteOptions(
         fields: widget.fields,
         types: widget.types,
-        bounds: widget.bounds == null
+        bounds: bounds == null
             ? null
-            : LatLngBoundsJS.fromLatLngBounds(widget.bounds!),
+            : LatLngBoundsJS(
+                LatLngJS(
+                  lat: bounds.northeast.lat,
+                  lng: bounds.northeast.lng,
+                ),
+                LatLngJS(
+                  lat: bounds.southwest.lat,
+                  lng: bounds.southwest.lng,
+                ),
+              ),
         strictBounds: widget.strictBounds,
         componentRestrictions: widget.componentRestrictions == null
             ? null
-            : ComponentRestrictionsJS.fromStringList(
-                widget.componentRestrictions!),
-        onSubmitted: widget.onSubmitted,
+            : ComponentRestrictionsJS(country: widget.componentRestrictions!),
       ),
     );
 
+    // Add listener if [onSubmitted] is not null
     if (widget.onSubmitted != null) {
       _eventListener =
-          autocomplete.addListener('place_changed', widget.onSubmitted!);
+          autocomplete.addListener('place_changed', allowInterop(() {
+        final PlaceResultJS resultJS = autocomplete.getPlace();
+        final PlaceResult result = PlaceResult(
+          addressComponents: resultJS.address_components
+              ?.map(
+                (GeocoderAddressComponentJS addressComponent) =>
+                    GeocoderAddressComponent(
+                  longName: addressComponent.long_name,
+                  shortName: addressComponent.short_name,
+                  types: addressComponent.types,
+                ),
+              )
+              .toList(),
+          adrAddress: resultJS.adr_address,
+          // this.aspects: resultJS.aspects,
+          // this.businessStatus: resultJS.business_status,
+          formattedAddress: resultJS.formatted_address,
+          formattedPhoneNumber: resultJS.formatted_phone_number,
+          // geometry: resultJS.geometry,
+          htmlAttributions: resultJS.html_attributions,
+          icon: resultJS.icon,
+          iconBackgroundColor: resultJS.icon_background_color,
+          iconMaskBaseUri: resultJS.icon_mask_base_uri,
+          internationalPhoneNumber: resultJS.international_phone_number,
+          name: resultJS.name,
+          // openingHours: resultJS.opening_hours,
+          // photos: resultJS.photos,
+          placeId: resultJS.place_id,
+          // plusCode: resultJS.plus_code,
+          priceLevel: resultJS.price_level,
+          ratings: resultJS.ratings,
+          // reviews: resultJS.reviews,
+          types: resultJS.types,
+          url: resultJS.url,
+          userRatingsTotal: resultJS.user_ratings_total,
+          utcOffset: resultJS.utc_offset,
+          utcOffsetMinutes: resultJS.utc_offset_minutes,
+          vicinitiy: resultJS.vicinitiy,
+          website: resultJS.website,
+        );
+        widget.onSubmitted!(result);
+      }));
     }
 
     super.initState();
