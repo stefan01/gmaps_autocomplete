@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "async",
-      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/async-2.6.1",
+      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/async-2.8.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -21,7 +21,7 @@
     },
     {
       "name": "charcode",
-      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/charcode-1.2.0",
+      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/charcode-1.3.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -63,7 +63,7 @@
     },
     {
       "name": "gmaps_autocomplete_platform_interface",
-      "rootUri": "../../gmaps_autocomplete_platform_interface",
+      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/git/gmaps_autocomplete-66b4071754518a420cd8481bc79abeb25f44a732/gmaps_autocomplete_platform_interface",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -87,7 +87,7 @@
     },
     {
       "name": "meta",
-      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/meta-1.3.0",
+      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/meta-1.7.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -141,7 +141,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/test_api-0.3.0",
+      "rootUri": "file:///C:/Users/stefa/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/test_api-0.4.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -164,7 +164,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-08-11T14:41:19.372712Z",
+  "generated": "2021-09-22T09:25:29.053665Z",
   "generator": "pub",
-  "generatorVersion": "2.13.4"
+  "generatorVersion": "2.14.2"
 }
