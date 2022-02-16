@@ -10,8 +10,8 @@ import 'package:gmaps_autocomplete_platform_interface/gmaps_autocomplete_platfor
 import 'package:gmaps_autocomplete_platform_interface/model/lat_lng_bounds.dart';
 import 'package:gmaps_autocomplete_platform_interface/model/place_result.dart';
 import 'package:gmaps_autocomplete_web/model/gmaps.dart';
-
 import 'package:gmaps_autocomplete_web/model/gmaps_places.dart';
+import 'package:uuid/uuid.dart';
 
 /// The web implementation of [GMapsAutocompletePlatform].
 ///
@@ -68,15 +68,20 @@ class GMapsAutocompleteWidget extends StatefulWidget {
 class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
   MapsEventListener? _eventListener;
 
+  final Uuid uuid = const Uuid();
+  String id;
+
   @override
   void initState() {
+    id = uuid.v4();
+
     final HtmlElement inputElement = html.InputElement()
-      ..id = 'gmaps-autocomplete-input'
+      ..id = 'gmaps-autocomplete-input-$id'
       ..placeholder = 'Please enter your address'
       ..type = 'text';
 
     ui.platformViewRegistry.registerViewFactory(
-        'gmaps-autocomplete', (int viewId) => inputElement);
+        'gmaps-autocomplete-$id', (int viewId) => inputElement);
 
     final LatLngBounds? bounds = widget.bounds;
 
@@ -166,8 +171,8 @@ class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return const HtmlElementView(
-      viewType: 'gmaps-autocomplete',
+    return HtmlElementView(
+      viewType: 'gmaps-autocomplete-$id',
     );
   }
 }
