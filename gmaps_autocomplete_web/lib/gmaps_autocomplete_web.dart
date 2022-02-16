@@ -69,7 +69,7 @@ class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
   MapsEventListener? _eventListener;
 
   final Uuid uuid = const Uuid();
-  String id;
+  late String id;
 
   @override
   void initState() {
