@@ -44,7 +44,6 @@ class PlaceResultJS {
     List<String>? types,
     String? url,
     num? user_ratings_total,
-    num? utc_offset,
     num? utc_offset_minutes,
     String? vicinitiy,
     String? website,
@@ -73,7 +72,6 @@ class PlaceResultJS {
   external List<String>? types;
   external String? url;
   external num? user_ratings_total;
-  external num? utc_offset;
   external num? utc_offset_minutes;
   external String? vicinitiy;
   external String? website;

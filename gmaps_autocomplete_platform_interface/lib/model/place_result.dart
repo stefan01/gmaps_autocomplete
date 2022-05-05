@@ -23,7 +23,6 @@ class PlaceResult {
     this.types,
     this.url,
     this.userRatingsTotal,
-    this.utcOffset,
     this.utcOffsetMinutes,
     this.vicinitiy,
     this.website,
@@ -52,7 +51,6 @@ class PlaceResult {
   final List<String>? types;
   final String? url;
   final num? userRatingsTotal;
-  final num? utcOffset;
   final num? utcOffsetMinutes;
   final String? vicinitiy;
   final String? website;

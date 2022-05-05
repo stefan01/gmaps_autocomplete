@@ -2,7 +2,7 @@ name: gmaps_autocomplete_platform_interface
 description: A common platform interface for the gmaps_autocomplete plugin.
 repository: https://github.com/stefan01/gmaps_autocomplete
 issue_tracker: https://github.com/stefan01/gmaps_autocomplete/issues
-version: 0.0.1
+version: 0.0.2
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

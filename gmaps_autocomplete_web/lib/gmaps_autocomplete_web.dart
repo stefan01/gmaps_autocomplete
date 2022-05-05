@@ -149,7 +149,6 @@ class _GMapsAutocompleteWidget extends State<GMapsAutocompleteWidget> {
               types: resultJS.types,
               url: resultJS.url,
               userRatingsTotal: resultJS.user_ratings_total,
-              utcOffset: resultJS.utc_offset,
               utcOffsetMinutes: resultJS.utc_offset_minutes,
               vicinitiy: resultJS.vicinitiy,
               website: resultJS.website,
