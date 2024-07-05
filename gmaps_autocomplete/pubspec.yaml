@@ -1,6 +1,6 @@
 name: gmaps_autocomplete
 description: Flutter Plugin implementing the google maps places autocomplete widget for web
-version: 0.0.2
+version: 0.0.3
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
